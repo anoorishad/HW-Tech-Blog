@@ -4,7 +4,7 @@
 <div class="card cardBlog animate__animated animate__fadeInTopLeft">
   <h5 class="card-header">{{format_date date_created}}</h5>
   <div class="card-body">
-    <h3 class="card-title">{{title}}</h3>
+    <a href="/blog/{{id}}"><h3 class="card-title">{{title}}</h3></a>
     <p class="card-text">{{contents}}</p>
     <button id= "delBtn" class="btn del btn-danger" data-Blog={{id}}>delete</button>
   </div>

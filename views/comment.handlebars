@@ -1,0 +1,21 @@
+<h2>{{title}}</h2>
+{{#each comments}}
+<div class="card cardComment animate__animated animate__fadeInTopLeft">
+    <h5 class="card-header">{{format_date date_created}} by {{user.name}}</h5>
+    <div class="card-body">
+        <p class="card-text">{{comment}}</p>
+    </div>
+</div>
+{{/each}}
+<div class="card">
+    <form action="" data-blogId="{{id}}" id="newComment">
+        <div class=" card-body mb-3">
+            <label for="body" class="form-label">Type your comment below</label>
+            <textarea class="form-control" id="body" cols="30" rows="3"></textarea>
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+<script src="/js/comment.js"></script>

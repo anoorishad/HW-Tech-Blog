@@ -40,7 +40,32 @@ router.get('/blog/:id', async (req, res) => {
 
     const blog = blogData.get({ plain: true });
 
-    res.render('blog', {
+    res.render('editblog', {
+      ...blog,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get('/comment/:blog_id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.blog_id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: Comment,
+          include: [{model:User}]
+        }
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+    console.log(blog)
+    res.render('comment', {
       ...blog,
       logged_in: req.session.logged_in
     });
