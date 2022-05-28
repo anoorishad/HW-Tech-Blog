@@ -1,8 +1,8 @@
 <div class="card">
-    <form action="" id="newBlog">
+    <form action="" data-blogId="{{id}}" id="newBlog">
         <div class="card-body mb-3">
             <label for="title" class="form-label">Your Blog title</label>
-            <input value={{title}}type="text" class="form-control" id="title" placeholder="title">
+            <input value="{{title}}"type="text" class="form-control" id="title" placeholder="title">
         </div>
         <div class=" card-body mb-3">
             <label for="body" class="form-label">Blog Content</label>
@@ -13,3 +13,4 @@
         </div>
     </form>
 </div>
+<script src="/js/updateBlog.js"></script>
